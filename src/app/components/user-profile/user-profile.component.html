@@ -1,0 +1,62 @@
+<div class="main-page">
+    <div class="sort-block">
+        <div class="container-block">
+            <button routerLink="/" class="buttons">Back to list</button>
+        </div>
+    </div>
+    <div class="users-block">
+        <div *ngIf="userForm" class="container-users">
+            <div class="user-header">
+                <h1 class="users-block__title">User profile</h1>
+                <div *ngIf="isDisabled" class="user-header__btn">
+                    <button class="buttons" (click)="editForm()">Edit</button>
+                </div>
+            </div>
+            <form [formGroup]="userForm" [ngClass]="{'enable': !isDisabled}" class="form-block">
+                <div>
+                    <div class="text">Name</div>
+                    <input type="text" class="input" formControlName="name">
+                </div>
+                <div>
+                    <div class="text">User name</div>
+                    <input type="text" class="input" formControlName="username">
+                </div>
+                <div>
+                    <div class="text">E-mail</div>
+                    <input [class.invalid]="userForm.controls['email'].invalid && userForm.controls['email'].touched" type="text" class="input" formControlName="email">
+                </div>
+                <div>
+                    <div class="text">Street</div>
+                    <input type="text" class="input" formControlName="street">
+                </div>
+                <div>
+                    <div class="text">City</div>
+                    <input type="text" class="input" formControlName="city">
+                </div>
+                <div>
+                    <div class="text">Zip code</div>
+                    <input type="text" class="input" formControlName="zipcode">
+                </div>
+                <div>
+                    <div class="text">Phone</div>
+                    <input [class.invalid]="userForm.controls['phone'].invalid && userForm.controls['phone'].touched" type="text" class="input" formControlName="phone">
+                </div>
+                <div>
+                    <div class="text">Website</div>
+                    <input [class.invalid]="userForm.controls['website'].invalid && userForm.controls['website'].touched" type="text" class="input" formControlName="website">
+                </div>
+                <div>
+                    <div class="text">Comment</div>
+                    <textarea class="text-area" formControlName="comment"></textarea>
+                </div>
+            </form>
+            <div class="send-button">
+                <button class="send"
+                        [disabled]="!userForm.valid"
+                        [ngStyle]="{'background': isDisabled ? '' : userForm.valid ? '#72B63B' : 'rgba(114, 182, 59, 0.5)'}"
+                        (click)="onSubmit()"
+                        >Send</button>
+            </div>
+        </div>
+    </div>
+</div>

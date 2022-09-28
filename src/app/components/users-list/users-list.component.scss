@@ -1,0 +1,36 @@
+.user-card {
+    margin-top: 10px;
+    background: #061125;
+    border-radius: 8px;
+    padding: 3px 10px 10px 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    &__block {
+        display: flex;
+    }
+    &__titles {
+        margin-right: 50px;
+    }
+    &__detail {
+        display: flex;
+        align-items: flex-end;
+    }
+}
+.gren-text {
+    margin-top: 7px;
+    color: #72B63B; 
+    font-weight: 400;
+    font-size: 11px;
+}
+.white-text {
+    margin-top: 7px;
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 11px;
+}
+.link{
+    color: #72B63B; 
+    font-weight: 400;
+    font-size: 12px; 
+}

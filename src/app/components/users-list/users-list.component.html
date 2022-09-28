@@ -1,0 +1,35 @@
+ <div class="main-page">
+    <div class="sort-block">
+        <div class="container-block">
+            <h1 class="sort-block__title">Sort:</h1>
+            <button class="buttons" (click)="cityFilter()">by city</button>
+            <button class="buttons" (click)="companyFilter()">by company</button>
+        </div>
+    </div>
+    <div class="users-block">
+        <div class="container-users">
+            <h1 class="users-block__title">List of users</h1>
+            <div class="users-block__list">
+                <img *ngIf="loadingUsers.isLoading" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?20151024034921" alt="loading">
+                <div class="user-card" *ngFor="let user of users">
+                    <div class="user-card__block">
+                        <div class="user-card__titles">
+                            <div class="gren-text">Full Name:</div>
+                            <div class="gren-text">City:</div>
+                            <div class="gren-text">Company:</div>
+                        </div>
+                        <div class="user-card__info">
+                            <div class="white-text">{{ user?.name }}</div>
+                            <div class="white-text">{{ user?.address?.city }}</div>
+                            <div class="white-text">{{ user?.company?.name }}</div>
+                        </div>
+                    </div>
+                    <div class="user-card__detail">
+                        <a routerLink="user" [queryParams]="{id: user?.id}" class="link">Detail</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+ 
